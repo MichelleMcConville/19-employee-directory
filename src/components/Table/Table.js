@@ -13,6 +13,18 @@ class Table extends React.Component {
     search: "",
   };
 
+  //Api call for randomuser.me
+  componentDidMount() {
+    API.getEmployees()
+      .then((res) => {
+        this.setState({ employeeDB: res.data.results });
+        console.log(this.state.employeeDB);
+      })
+      .catch((err) => console.log(err));
+  }
+
+  
+
 function Table(props) {
   
 }
