@@ -50,6 +50,22 @@ class Table extends React.Component {
     this.setState({ employeeDB: sortedEmployees });
   };
 
+  //Sort by last name
+  sortByLName = () => {
+    const sortedEmployees = this.state.employeeDB.sort((a, b) => {
+      if (b.name.last > a.name.last) { return -1; }
+      if (a.name.last > b.name.last) { return 1; }
+      return 0;
+    });
+    if (this.state.filteredPeepsDB === "DESC") {
+      sortedEmployees.reverse();
+      this.setState({ filteredPeepsDB: "ASC" });
+    } else {
+      this.setState({ filteredPeepsDB: "DESC" });
+    }
+    this.setState({ employeeDB: sortedEmployees });
+  };
+
   
 
 function Table(props) {
