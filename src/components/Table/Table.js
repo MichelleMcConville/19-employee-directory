@@ -33,6 +33,24 @@ class Table extends React.Component {
     }
   };
 
+  //Sort by first name
+  sortByFName = () => {
+    const sortedEmployees = this.state.employeeDB.sort((a, b) => {
+      if (b.name.first > a.name.first) { return -1; }
+      if (a.name.first > b.name.first) { return 1; }
+      return 0;
+    });
+
+    if (this.state.filteredPeepsDB === "DESC") {
+      sortedEmployees.reverse();
+      this.setState({ filteredPeepsDB: "ASC" });
+    } else {
+      this.setState({ filteredPeepsDB: "DESC" });
+    }
+    this.setState({ employeeDB: sortedEmployees });
+  };
+
+  
 
 function Table(props) {
   
