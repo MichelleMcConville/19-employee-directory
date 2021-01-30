@@ -82,10 +82,60 @@ class Table extends React.Component {
     this.setState({ employeeDB: sortedEmployees });
   };
 
-  
+  //Render items
+  render() {
+    // {props.peeps.length > 0 ? props.peeps.map(props => { 
+    return (
+      <div className="container">
+        <Search handleInputChange={this.handleInputChange} search={this.state.search} />
 
-function Table(props) {
-  
+        <div className="table-responsive">
+          <table className="table table-striped table-responsive table-hover">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>First Name <span className="downArrow" onClick={this.sortByFName}></span></th>
+                <th>Last Name <span className="downArrow" onClick={this.sortByLName}></span></th>
+                <th>Location <span className="downArrow" onClick={this.sortByLocation}></span></th>
+                <th>Phone</th>
+                <th>DOB </th>
+              </tr>
+            </thead>
+
+            {
+              //First Name sort
+              this.state.employeeDB && this.state.employeeDB.map((item) =>
+                item.name.first.toLowerCase().includes(this.state.search) ? (
+                  <tbody key={item.login.uuid}>
+                    <tr>
+                      <td><img src={item.picture.thumbnail} alt="thumbnail" /></td>
+                      <td>{item.name.first}</td>
+                      <td>{item.name.last}</td>
+                      <td>{item.location.city}</td>
+                      <td>{item.phone}</td>
+                      <td>{DateFormat(item.dob.date, "mediumDate")}</td>
+                    </tr>
+                  </tbody>
+                ) : //Last Name sort
+                item.name.last.toLowerCase().includes(this.state.search) ? (
+                  <tbody key={item.login.uuid}>
+                    <tr>
+                      <td><img src={item.picture.thumbnail} className="rounded-circle" alt="thumbnail" /></td>
+                      <td>{item.name.first}</td>
+                      <td>{item.name.last}</td>
+                      <td>{item.phone}</td>
+                      <td>{item.location.city}</td>
+                      <td>{DateFormat(item.dob.date, "mediumDate")}</td>
+                    </tr>
+                  </tbody>
+                ) : null
+              )
+            }
+          </table>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Table;
