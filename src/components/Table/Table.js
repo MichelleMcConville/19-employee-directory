@@ -91,7 +91,7 @@ class Table extends React.Component {
 
         <div className="table-responsive">
           <table className="table table-striped table-responsive table-hover">
-            <thead>
+            <thead className="table-head">
               <tr>
                 <th>Image</th>
                 <th>First Name <span className="downArrow" onClick={this.sortByFName}></span></th>
@@ -123,8 +123,8 @@ class Table extends React.Component {
                       <td><img src={item.picture.thumbnail} className="rounded-circle" alt="thumbnail" /></td>
                       <td>{item.name.first}</td>
                       <td>{item.name.last}</td>
-                      <td>{item.phone}</td>
                       <td>{item.location.city}</td>
+                      <td>{item.phone}</td>
                       <td>{DateFormat(item.dob.date, "mediumDate")}</td>
                     </tr>
                   </tbody>
