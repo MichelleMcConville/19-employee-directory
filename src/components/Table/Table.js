@@ -23,7 +23,16 @@ class Table extends React.Component {
       .catch((err) => console.log(err));
   }
 
-  
+  //Handle input in search bar
+  handleInputChange = (event) => {
+    if (event.target.name === "search") {
+      const searchTerm = event.target.value.toLowerCase();
+      this.setState({
+        search: searchTerm,
+      });
+    }
+  };
+
 
 function Table(props) {
   
