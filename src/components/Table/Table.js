@@ -66,6 +66,22 @@ class Table extends React.Component {
     this.setState({ employeeDB: sortedEmployees });
   };
 
+  //Sort by location
+  sortByLocation = () => {
+    const sortedEmployees = this.state.employeeDB.sort((a, b) => {
+      if (b.location.city > a.location.city) { return -1; }
+      if (a.location.city > b.location.city) { return 1; }
+      return 0;
+    });
+    if (this.state.filteredPeepsDB === "DESC") {
+      sortedEmployees.reverse();
+      this.setState({ filteredPeepsDB: "ASC" });
+    } else {
+      this.setState({ filteredPeepsDB: "DESC" });
+    }
+    this.setState({ employeeDB: sortedEmployees });
+  };
+
   
 
 function Table(props) {
