@@ -1,29 +1,28 @@
+.btn-primary {
+  color: azure;
+}
+
+.btn-primary:hover {
+  background-color: azure;
+  color: #5d5d5d;
+  cursor: pointer;
+}
+
+.form-control {
+  border: 0.125rem solid;
+  border-color: #2b213b;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  height: 2.5rem;
+  margin: 2rem 0;
+  text-align: center;
+  width: 20rem;
+}
+
 .form-group {
-    /* margin: auto; */
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    vertical-align: middle;
-  }
-  
-  .btn-primary {
-    color: azure;
-  }
-  
-  .btn-primary:hover {
-    background-color: azure;
-    color: #5d5d5d;
-    cursor: pointer;
-  }
-  
-  .form-control {
-    border: .125rem solid;
-    border-color: #2b213b;
-    border-radius: .5rem;
-    font-size: 1.5rem;
-    height: 2.5rem;
-    margin: 2rem 0;
-    text-align: center;
-    width: 20rem;
-  }
-  
+  display: flex;
+  font-family: "Rock Salt", cursive;
+  justify-content: center;
+  padding: 0;
+  vertical-align: middle;
+}
