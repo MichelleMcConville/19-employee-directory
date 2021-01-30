@@ -6,6 +6,13 @@ import "./Table.css";
 //npm package to reformat DOB
 import DateFormat from "dateformat";
 
+class Table extends React.Component {
+  state = {
+    employeeDB: [],
+    filteredPeepsDB: "",
+    search: "",
+  };
+
 function Table(props) {
   
 }
